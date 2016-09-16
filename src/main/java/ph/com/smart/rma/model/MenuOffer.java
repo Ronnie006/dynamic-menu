@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.PostLoad;
 import javax.persistence.Table;
 
@@ -45,6 +46,7 @@ public class MenuOffer {
 	@Column(name="SPIEL")
 	String promoSpiel;
 
+	@OrderBy("levelId ASC")
 	@OneToMany
 	@JoinColumn(name="PRE_REQ",referencedColumnName="OFFER_ID")
 	public List<MenuOffer> items;
